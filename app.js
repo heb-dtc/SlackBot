@@ -18,7 +18,7 @@ app.get('/old', function (req, res) {
 	res.status(200).send('old is good') 
 });
 
-app.post('/hello', bot);
+app.post('/old', bot);
  
 // error handler
 app.use(function (err, req, res, next) {
