@@ -5,13 +5,11 @@ module.exports = function (req, res, next) {
     username : 'botte',
     channel : req.body.channel_id,
     text : 'English Pliz!',
-    attachments : [
-      {
+    attachments : [{
             fallback: "English Pliz!",
             color: "#FF0000",
             image_url: "https://botte.herokuapp.com/english_pliz.gif"
-        } 
-    ]
+    }]
   };
   
   send(botPayload, function (error, status, body) {
