@@ -1,4 +1,4 @@
-module.exports = function (req, res, next) {
+module.exports = function (req, res) {
   var userName = req.body.user_name;
   var botPayload = {
     text : 'Old Is Good Bro!',

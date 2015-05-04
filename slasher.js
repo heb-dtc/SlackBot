@@ -1,33 +1,41 @@
 var request = require('request');
  
 module.exports = function (req, res, next) {
-	var botPayload = {
+  var botPayload = {
     username : 'botte',
     channel : req.body.channel_id,
+    text : 'English Pliz!',
     attachments : [
       {
-            "fallback": "Old Is Good!",
-
-            "color": "#36a64f",
-
-            "title": "Slack API Documentation",
-            "title_link": "https://api.slack.com/",
-
-            "pretext": "Old Is Good Bro'!",
-
-            "image_url": "https://botte.herokuapp.com/old_is_good.jpg"
+            fallback: "English Pliz!",
+            color: "#FF0000",
+            image_url: "https://botte.herokuapp.com/english_pliz.gif"
         } 
     ]
   };
-	send(botPayload);
+  
+  send(botPayload, function (error, status, body) {
+    if (error) {
+      return next(error);
+    } else if (status !== 200) {
+      return next(new Error('Enlgish Pliz WebHook failed miserably: ' + status + ' ' + body));
+    } else {
+      return res.status(200).end();
+    }
+  });
 };
  
-function send (payload) {
-  var uri = 'https://hooks.slack.com/services/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';
- 
+function send (payload, callback) {
+  var uri = 'your-incoming-webhook-url-here';
+
   request({
-    uri: uri,
-    method: 'POST',
-    body: JSON.stringify(payload)
+      uri: uri,
+      method: 'POST',
+      body: JSON.stringify(payload)
+  },  function (error, response, body) {
+        if (error) {
+          return callback(error);
+        }
+        callback(null, response.statusCode, body);
   });
 }
