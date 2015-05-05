@@ -8,7 +8,7 @@ module.exports = function (req, res, next) {
     attachments : [{
             fallback: "English Pliz!",
             color: "#FF0000",
-            image_url: "http://i.imgur.com/ojqninI.gif"
+            image_url: "https://botte.herokuapp.com/english_pulp.gif"
     }]
   };
   
