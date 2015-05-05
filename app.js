@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var greeter = require('./greeter');
 var slasher = require('./slasher');
 var oldIsGood = require('./oldisgood'); 
+var bro = require('./bro'); 
  
 var app = express();
 var port = process.env.PORT || 3000;
@@ -28,6 +29,7 @@ app.post('/old', oldIsGood);
 //Slack incoming webhook example
 //react to "/english" being posted on any channel
 app.post('/englishpliz', slasher);
+app.post('/bro', bro);
  
 // error handler
 app.use(function (err, req, res, next) {
