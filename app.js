@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var greeter = require('./greeter');
 var slasher = require('./slasher');
 var oldIsGood = require('./oldisgood'); 
+var demory = require('./demory');
  
 var app = express();
 var port = process.env.PORT || 3000;
@@ -29,6 +30,9 @@ app.post('/old', oldIsGood);
 //react to "/english" being posted on any channel
 app.post('/englishpliz', slasher);
  
+//react to "/demory" being posted on any channel
+app.post('/demory', demory);
+
 // error handler
 app.use(function (err, req, res, next) {
   console.error(err.stack);
