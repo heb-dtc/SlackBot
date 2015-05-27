@@ -15,6 +15,10 @@ To run it locally you can run:
 
 `node app`
 
+Or you can use supervisor to autoreload the server during your development process:
+`npm install -g supervisor`
+`supervisor app`
+
 ## Slack Webhooks
 
 Slack offers different types of hooks:
