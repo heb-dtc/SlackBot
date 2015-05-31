@@ -1,4 +1,5 @@
 var request = require('request');
+var common = require('./common');
  
 module.exports = function (req, res, next) {
   var botPayload = {
@@ -25,10 +26,8 @@ module.exports = function (req, res, next) {
 };
  
 function send (payload, callback) {
-  var uri = 'https://hooks.slack.com/services/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';
-
   request({
-      uri: uri,
+      uri: common.uri,
       method: 'POST',
       body: JSON.stringify(payload)
   },  function (error, response, body) {
